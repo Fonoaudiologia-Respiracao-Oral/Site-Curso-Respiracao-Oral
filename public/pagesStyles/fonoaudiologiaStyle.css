@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&family=Open+Sans:wght@300&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+#main_content_border{
+    border: 10px;
+    border-style: solid;
+    border-color: white;
+    border-style: solid;
+    
+}
+
+#main_content{
+    border: 10px;
+    border-style: solid;
+    border-color:#5CB6F9;
+    border-style: solid;
+    background-color:#CAE8FF;
+    display: flex;
+    flex-direction: column;
+}
+#central_image{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: 650px;
+    top: 150px;
+    left: 25%;
+}
+#central_image img{
+    opacity: 20%;
+}
+
+#fono{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 90px;
+    z-index: 1;
+}
+
+.fono_title{
+    font-family: 'Satisfy', cursive;
+    font-size: 45px;
+    color: #002439;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: 35%;
+    text-shadow: 2px 2px 2px #5CB6F9;
+}
+
+.fono_text{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: black;
+    margin-top: 10px;
+    text-align:left;
+    margin-left: 10%;
+    width: 80%;
+    text-shadow: 1px 1px 1px #5CB6F9;;
+}
+
+.fono_text p{
+    margin-top: 15px;
+    text-indent: 4%;
+}
+
+
+#footer_content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 99,7%;
+    height: 170px;
+    border-top: #5CB6F9;
+    border-top-style: solid;
+    border-top-width: 7px;
+}
+
+.left_footer_content{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+.left_footer_content img{
+    width: 160px;
+    height: 90px;
+    margin-right: 10%;
+}
+
+.left_footer_content_text{
+    text-align:center;
+   
+}
+
+.left_footer_content_text p{
+    font-family: 'Satisfy', cursive;
+    font-size: 25px;
+    color: #484c4e;
+    text-shadow: 1px 1px 1px #CAE8FF;
+}
+
+.right_footer_content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 10%;
+}
+
+.right_footer_content svg{
+    color: #484c4e;
+}
