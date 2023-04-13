@@ -1,35 +1,40 @@
 const express = require('express');
+const path= require('path')
 const app = express();
-app.use(express.static('public'))
+const PORT = process.env.PORT || 8080
 
 app.set("view engine", "ejs");
 
-app.get("/", function(req, res){
-    res.render("pages/home");
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(__dirname + '/public'));
+
+app.get("/", (req, res)=>{
+    res.render("home");
 })
 
-app.get("/referencias", function(req, res){
-    res.render("pages/referencias");
+app.get("/referencias", (req, res)=>{
+    res.render("referencias");
 })
 
-app.get("/fonoaudiologia", function(req, res){
-    res.render("pages/fonoaudiologia");
+app.get("/fonoaudiologia", (req, res)=>{
+    res.render("fonoaudiologia");
 })
 
-app.get("/modulo1", function(req, res){
-    res.render("pages/module1");
+app.get("/modulo1", (req, res)=>{
+    res.render("module1");
 })
 
-app.get("/modulo2", function(req, res){
-    res.render("pages/module2");
+app.get("/modulo2", (req, res)=>{
+    res.render("module2");
 })
 
-app.get("/modulo3", function(req, res){
-    res.render("pages/module3");
+app.get("/modulo3", (req, res)=>{
+    res.render("module3");
 })
 
-app.get("/modulo4", function(req, res){
-    res.render("pages/module4");
+app.get("/modulo4", (req, res)=>{
+    res.render("module4");
 })
-app.listen(8080);
-console.log("Server is running");
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`)
+  })
