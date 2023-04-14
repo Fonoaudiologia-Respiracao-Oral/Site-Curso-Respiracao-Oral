@@ -20,6 +20,10 @@ app.get("/fonoaudiologia", (req, res)=>{
     res.render("fonoaudiologia");
 })
 
+app.get("/questionario", (req, res)=>{
+    res.render("questionario");
+})
+
 app.get("/modulo1", (req, res)=>{
     res.render("module1");
 })
