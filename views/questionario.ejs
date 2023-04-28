@@ -23,7 +23,7 @@
                     <input type="text" name="email" id="email" placeholder="Digite seu e-mail">
                 </div>
 
-                <!-- Questão 2 -->
+                <!-- Questão 1 -->
 
                 <div class="question">
                     <h2>A respiração adequada deve ser realizada por qual(is) cavidade(s)?</h2>
@@ -32,7 +32,7 @@
                         <label for="q1_option1">Nariz</label>
                     </div>
                     <div class="answer">
-                        <input type="radio" name="question1" id="q1_option2" value="q1_option2">
+                        <input type="radio" name="question1" id="q1_option2" value="correta">
                         <label for="q1_option2">Boca</label>
                     </div>
                     <div class="answer">
@@ -43,285 +43,29 @@
                         <input type="radio" name="question1" id="q1_option4" value="q1_option4">
                         <label for="q1_option4">Nenhuma das alternativas</label>
                     </div>
-                </div>
-                
-                <!-- Questão 2 -->
-                
-                <div class="question">
-                    <h2>O nariz possui estruturas adequadas para:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question2" id="q2_option1" value="q2_option1">
-                        <label for="q2_option1">Aquecer, filtrar e sujar o ar que aspiramos</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question2" id="q2_option2" value="q2_option2">
-                        <label for="q2_option2">Purificar, secar e umidificar o ar que aspiramos</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question2" id="q2_option3" value="q2_option3">
-                        <label for="q2_option3">Aquecer, filtrar e umidificar o ar que respiramos</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question2" id="q2_option4" value="q2_option4">
-                        <label for="q2_option4">Molha, umidificar e filtrar o ar que respiramos</label>
-                    </div>
+                    <button onclick="verificarRespostas()">Enviar</button>
                 </div>
 
-                <!-- Questão 3 -->
+                <script>
+                    function verificarRespostas() {
+                        var pontuacao = 0;
+                        var respostas = document.getElementsByName("question1");
+                        
+                        // Verificar a resposta da primeira pergunta
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "correta") {
+                                pontuacao += 4;
+                                break;
+                            }
+                        }
+                        
+                        // Adicionar outras perguntas aqui para verificar
+                        
+                        // Exibir a pontuação
+                        alert("Sua pontuação é: " + pontuacao);
+                    }
+                    </script>
                 
-                <div class="question">
-                    <h2>A prevalência da Respiração Oral se dá em:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question3" id="q3_option1" value="q3_option1">
-                        <label for="q3_option1">Adolecentes do ensino médio</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question3" id="q3_option2" value="q3_option2">
-                        <label for="q3_option2">Adultos</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question3" id="q3_option3" value="q3_option3">
-                        <label for="q3_option3">Crianças em idade escolar</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question3" id="q3_option4" value="q3_option4">
-                        <label for="q3_option4">Idosos</label>
-                    </div>
-                </div>
-
-                <!-- Questão 4 -->
-                
-                <div class="question">
-                    <h2>As causas mais frequentes da Respiração Oral são:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question4" id="q4_option1" value="q4_option1">
-                        <label for="q4_option1">Obstruções</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question4" id="q4_option2" value="q4_option2">
-                        <label for="q4_option2">Gripes</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question4" id="q4_option3" value="q4_option3">
-                        <label for="q4_option3">Palato atrésico</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question4" id="q4_option4" value="q4_option4">
-                        <label for="q4_option4">Boca aberta</label>
-                    </div>
-                </div>
-
-                <!-- Questão 5 -->
-                
-                <div class="question">
-                    <h2>São fatores que favorecem a respiração oral, EXCETO:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question5" id="q5_option1" value="q5_option1">
-                        <label for="q5_option1">Flaccidez dos músculos da face</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question5" id="q5_option2" value="q5_option2">
-                        <label for="q5_option2">Hábitos deletérios</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question5" id="q5_option3" value="q5_option3">
-                        <label for="q5_option3">Rinite</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question5" id="q5_option4" value="q5_option4">
-                        <label for="q5_option4">Tonicidade adequada da musculatura orofacial</label>
-                    </div>
-                </div>
-
-                <!-- Questão 6 -->
-                
-                <div class="question">
-                    <h2>Julgue a afrimação:<br>
-                        Respiradores orais tendem a ser mais agitados e impacientes e podem apresentar défict no processo de aprendizagem</h2>
-                    <div class="answer">
-                        <input type="radio" name="question6" id="q6_option1" value="q6_option1">
-                        <label for="q6_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question6" id="q6_option2" value="q6_option2">
-                        <label for="q6_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                 <!-- Questão 7 -->
-                
-                 <div class="question">
-                    <h2>Julgue a afirmação:<br> 
-                        A hipotonia de lábios dificulta o fechamento labial</h2>
-                    <div class="answer">
-                        <input type="radio" name="question7" id="q7_option1" value="q7_option1">
-                        <label for="q7_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question7" id="q7_option2" value="q7_option2">
-                        <label for="q7_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 8 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> 
-                        A respiração oral não ocasiona em alterações na mastigação</h2>
-                    <div class="answer">
-                        <input type="radio" name="question8" id="q8_option1" value="q8_option1">
-                        <label for="q8_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question8" id="q8_option2" value="q8_option2">
-                        <label for="q8_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 9 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> Respiradores orais têm preferência por alimentos sólidos e pastosos</h2>
-                    <div class="answer">
-                        <input type="radio" name="question9" id="q9_option1" value="q9_option1">
-                        <label for="q9_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question9" id="q9_option2" value="q9_option2">
-                        <label for="q9_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 10 -->
-                
-                <div class="question">
-                    <h2>A equipe multidiciplinar necessária nos casos de respiradores orais, inclui os seguintes profissionais:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question10" id="q10_option1" value="q10_option1">
-                        <label for="q10_option1">Fonoaudiólogo, dentista e neurologista</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question10" id="q10_option2" value="q10_option2">
-                        <label for="q10_option2">Dentista e otorrinolaringologista</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question10" id="q10_option3" value="q10_option3">
-                        <label for="q10_option3">Fonoaudiólogo e dentista</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question10" id="q10_option4" value="q10_option4">
-                        <label for="q10_option4">Fonoaudiólogo, dentista e otorrinolaringologista</label>
-                    </div>
-                </div>
-
-                <!-- Questão 11 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> Trocar forros de cama e cobertores com frequência é um importante método preventivo</h2>
-                    <div class="answer">
-                        <input type="radio" name="question11" id="q11_option1" value="q11_option1">
-                        <label for="q11_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question11" id="q11_option2" value="q11_option2">
-                        <label for="q11_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 12 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> Manter os ambientes arejados favorece o desenvolvimento de bastérias e outros microrganismos</h2>
-                    <div class="answer">
-                        <input type="radio" name="question12" id="q12_option1" value="q12_option1">
-                        <label for="q12_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question12" id="q12_option2" value="q12_option2">
-                        <label for="q12_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 13 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> Cortinas e ursinhos de pelúcia devem estar presentes de maneira abundante para minimizar a ocorrência de respiração oral</h2>
-                    <div class="answer">
-                        <input type="radio" name="question13" id="q13_option1" value="q13_option1">
-                        <label for="q13_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question13" id="q13_option2" value="q13_option2">
-                        <label for="q13_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 14 -->
-                
-                <div class="question">
-                    <h2>Julgue a afirmação:<br> Após realização da higiene nasal todo o soro fisiológico deve ser retirado das narinas</h2>
-                    <div class="answer">
-                        <input type="radio" name="question14" id="q14_option1" value="q14_option1">
-                        <label for="q14_option1">Verdadeiro</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question14" id="q14_option2" value="q14_option2">
-                        <label for="q14_option2">Falso</label>
-                    </div>
-                    
-                </div>
-
-                <!-- Questão 15 -->
-                
-                <div class="question">
-                    <h2>Em relação à audição, respiradores orais podem apresentar alterações diversas, EXCETO:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question15" id="q15_option1" value="q15_option1">
-                        <label for="q15_option1">Alterações no processamento auditivo</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question15" id="q15_option2" value="q15_option2">
-                        <label for="q15_option2">Flutuação de audição</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question15" id="q15_option3" value="q15_option3">
-                        <label for="q15_option3">Otites</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question15" id="q15_option4" value="q15_option4">
-                        <label for="q15_option4">Melhora dos limiares auditivos</label>
-                    </div>
-                </div>
-
-                <!-- Questão 16 -->
-                
-                <div class="question">
-                    <h2>Nos casos de respiração oral o fonoaudiólogo é o responsável por:</h2>
-                    <div class="answer">
-                        <input type="radio" name="question16" id="q16_option1" value="q16_option1">
-                        <label for="q16_option1">Identificar e corrigir a causa desse modo respiratŕio</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question16" id="q16_option2" value="q16_option2">
-                        <label for="q16_option2">Adequar a musculatura e as funções alteradas</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question16" id="q16_option3" value="q16_option3">
-                        <label for="q16_option3">Corrigir alterações dentárias</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question16" id="q16_option4" value="q16_option4">
-                        <label for="q16_option4">Prevenir alterações oclusais</label>
-                    </div>
-                </div>
-            
             </div>
             
         </section>
