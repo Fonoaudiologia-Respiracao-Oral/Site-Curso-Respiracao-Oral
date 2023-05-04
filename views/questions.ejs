@@ -1,5 +1,53 @@
- <!-- Questão 2 -->
-                
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meu Questionário</title>
+    <link rel="stylesheet" href="../../pagesStyles/questionsStyle.css">
+  </head>
+  <body>
+
+    
+    <main id="main_content_border">
+
+        <section id="main_content">
+            <section id="central_header">
+                <img src="../../img/questionario.png">
+            </section>
+            <div class="form">
+                <div class="question">
+                    <h2>Qual o seu nome?</h2>
+                    <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+                </div>
+                <div class="question">
+                    <h2>Qual o seu e-mail?</h2>
+                    <input type="text" name="email" id="email" placeholder="Digite seu e-mail">
+                </div>
+
+                <!-- Questão 1 -->
+
+                <div class="question">
+                    <h2>A respiração adequada deve ser realizada por qual(is) cavidade(s)?</h2>
+                    <div class="answer">
+                        <input type="radio" name="question1" id="q1_option1" value="q1_option1">
+                        <label for="q1_option1">Nariz</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="question1" id="q1_option2" value="q1_option2">
+                        <label for="q1_option2">Boca</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="question1" id="q1_option3" value="q1_option3">
+                        <label for="q1_option3">Nariz e Boca</label>
+                    </div>
+                    <div class="answer">
+                        <input type="radio" name="question1" id="q1_option4" value="q1_option4">
+                        <label for="q1_option4">Nenhuma das alternativas</label>
+                    </div>
+                    
+                </div>
+
+                <!-- Questão 2 -->
+
                 <div class="question">
                     <h2>O nariz possui estruturas adequadas para:</h2>
                     <div class="answer">
@@ -21,9 +69,8 @@
                 </div>
 
                 <!-- Questão 3 -->
-                
 
-<div class="question">
+                <div class="question">
                     <h2>A prevalência da Respiração Oral se dá em:</h2>
                     <div class="answer">
                         <input type="radio" name="question3" id="q3_option1" value="q3_option1">
@@ -44,7 +91,7 @@
                 </div>
 
                 <!-- Questão 4 -->
-                
+
                 <div class="question">
                     <h2>As causas mais frequentes da Respiração Oral são:</h2>
                     <div class="answer">
@@ -66,7 +113,7 @@
                 </div>
 
                 <!-- Questão 5 -->
-                
+
                 <div class="question">
                     <h2>São fatores que favorecem a respiração oral, EXCETO:</h2>
                     <div class="answer">
@@ -103,9 +150,9 @@
                     
                 </div>
 
-                 <!-- Questão 7 -->
+                <!-- Questão 7 -->
                 
-                 <div class="question">
+                <div class="question">
                     <h2>Julgue a afirmação:<br> 
                         A hipotonia de lábios dificulta o fechamento labial</h2>
                     <div class="answer">
@@ -275,3 +322,168 @@
                         <label for="q16_option4">Prevenir alterações oclusais</label>
                     </div>
                 </div>
+
+
+                <button onclick="verificarRespostas()">Enviar</button>
+                <script>
+                    function verificarRespostas() {
+                        var pontuacao = 0;
+                        
+                        // Verificar a resposta da primeira pergunta
+                        var respostas = document.getElementsByName("question1");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q1_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question2");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q2_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question3");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q3_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question4");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q4_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question5");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q5_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question6");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q6_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question7");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q7_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question8");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q8_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question9");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q9_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question10");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q10_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question11");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q11_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question12");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q12_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question13");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q13_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question14");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q14_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question15");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q15_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                        // Verificar a resposta da segunda pergunta
+                        respostas = document.getElementsByName("question16");
+                        for (var i = 0; i < respostas.length; i++) {
+                            if (respostas[i].checked && respostas[i].value === "q16_option1") {
+                                pontuacao ++;
+                                break;
+                            }
+                        }
+                    
+                        
+                        // Exibir a pontuação
+                        alert("Sua pontuação é: " + pontuacao);
+
+                        // se a pontuação for menor que 8
+                        if (pontuacao < 1) {
+                        window.location.replace('/questionarioResultadoBaixo'); // redireciona para a página de resultados com pontuação baixa
+                        
+                        } else {
+                            
+
+                            //window.location.replace('/questionario-resultado-alto'); // redireciona para a página de resultados com pontuação alta
+                        }
+                    }
+
+                    
+
+                   
+                </script>
+                
+            </div>
+            
+        </section>
+    </main>
+        
+</body>
+</html>
