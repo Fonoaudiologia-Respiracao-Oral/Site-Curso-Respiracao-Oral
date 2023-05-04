@@ -21,7 +21,15 @@ app.get("/fonoaudiologia", (req, res)=>{
 })
 
 app.get("/questionario", (req, res)=>{
-    res.render("questionario");
+    res.render("questions");
+})
+
+app.get("/questionarioResultadoBaixo", (req, res)=>{
+    res.render("questionsLowResult");
+})
+
+app.get("/questionarioResultadoAlto", (req, res)=>{
+    res.render("questionsHightResult");
 })
 
 app.get("/modulo1", (req, res)=>{
