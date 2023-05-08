@@ -1,5 +1,6 @@
 const express = require('express');
-const path= require('path')
+const path= require('path');
+const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 8080
 
@@ -18,6 +19,7 @@ app.get("/referencias", (req, res)=>{
 
 app.get("/fonoaudiologia", (req, res)=>{
     res.render("fonoaudiologia");
+    
 })
 
 app.get("/questionario", (req, res)=>{
@@ -28,8 +30,28 @@ app.get("/questionarioResultadoBaixo", (req, res)=>{
     res.render("questionsLowResult");
 })
 
-app.get("/questionarioResultadoAlto", (req, res)=>{
+app.get("/questionarioResultadoAlto", async (req, res)=>{
+
     res.render("questionsHightResult");
+    console.log('oi');
+
+    var transport = nodemailer.createTransport({
+        host: "sandbox.smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: "4d87d9cbbad24f",
+          pass: "3943ed40180fe5"
+        }
+    
+    });
+
+    let message = await transport.sendMail({
+        from: '"pessoa teste" <pessoa@teste.com>',
+        to: "pucci.rique1234@gmail.com",
+        subject: "email com nodemailer",
+        text: "email de teste",
+        html: "<p>um email de teste</p>"
+    });
 })
 
 app.get("/modulo1", (req, res)=>{
@@ -47,6 +69,11 @@ app.get("/modulo3", (req, res)=>{
 app.get("/modulo4", (req, res)=>{
     res.render("module4");
 })
+
+app.get("/comecarQuestionario", (req, res)=>{
+    res.render("questionsStart");
+})
+
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
 })
