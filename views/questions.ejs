@@ -13,7 +13,7 @@
             <section id="central_header">
                 <img src="../../img/questionario.png">
             </section>
-            <div class="form">
+            <form action="https://api.sheetmonkey.io/form/kH9XPf3enLaviBpLwSCtbg" method="post">
                 <div class="question">
                     <h2>Qual o seu nome?</h2>
                     <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
@@ -27,23 +27,33 @@
 
                 <div class="question">
                     <h2>A respiração adequada deve ser realizada por qual(is) cavidade(s)?</h2>
-                    <div class="answer">
-                        <input type="radio" name="question1" id="q1_option1" value="q1_option1">
-                        <label for="q1_option1">Nariz</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question1" id="q1_option2" value="q1_option2">
-                        <label for="q1_option2">Boca</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question1" id="q1_option3" value="q1_option3">
-                        <label for="q1_option3">Nariz e Boca</label>
-                    </div>
-                    <div class="answer">
-                        <input type="radio" name="question1" id="q1_option4" value="q1_option4">
-                        <label for="q1_option4">Nenhuma das alternativas</label>
-                    </div>
+                    <ol type="I">
+                        <div class="answer">
+                            <li>
+                                <input type="radio" name="question1" id="q1_option1" value="I" required>
+                                <label for="q1_option1">Nariz</label>
+                            </li>
+                        </div>
+                        <div class="answer">
+                            <li>
+                                <input type="radio" name="question1" id="q1_option2" value="II">
+                                <label for="q1_option2">Boca</label>
+                            </li>
+                        </div>
                     
+                        <div class="answer">
+                            <li>
+                                <input type="radio" name="question1" id="q1_option3" value="III">
+                                <label for="q1_option3">Nariz e Boca</label>
+                            </li>
+                        </div>
+                        <div class="answer">
+                            <li>
+                                <input type="radio" name="question1" id="q1_option4" value="IV">
+                                <label for="q1_option4">Nenhuma das alternativas</label>
+                            </li>
+                        </div>
+                    </ol>
                 </div>
 
                 <!-- Questão 2 -->
@@ -324,15 +334,22 @@
                 </div>
 
 
-                <button onclick="verificarRespostas()">Enviar</button>
+                <button type="submit">Enviar</button>
                 <script>
-                    function verificarRespostas() {
+                    const handleSubmit = (event) => {
+
+                        event.preventDefault();
+                        const name = document.querySelector('input[name="nome"]').value;
+                        const email = document.querySelector('input[name="email"]').value;
+                        const questao1 = document.querySelector('input[name="question1"]:checked').value;
                         var pontuacao = 0;
                         
+                        
+
                         // Verificar a resposta da primeira pergunta
                         var respostas = document.getElementsByName("question1");
                         for (var i = 0; i < respostas.length; i++) {
-                            if (respostas[i].checked && respostas[i].value === "q1_option1") {
+                            if (respostas[i].checked && respostas[i].value === "I") {
                                 pontuacao ++;
                                 break;
                             }
@@ -460,26 +477,47 @@
                             }
                         }
                     
+                        fetch('https://api.sheetmonkey.io/form/kH9XPf3enLaviBpLwSCtbg', {
+                                
+                        
+                            method: 'post',
+                            headers: {
+                                'Accept': 'aplication/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                "nome": name,
+                                "email": email,
+                                "resposta Q1": questao1,
+                                "pontuacao":pontuacao
+
+                            })
+                                    
+                        });
+                       
                         
                         // Exibir a pontuação
                         alert("Sua pontuação é: " + pontuacao);
 
+                        
                         // se a pontuação for menor que 8
                         if (pontuacao < 1) {
-                            window.location.replace('/questionarioResultadoBaixo'); // redireciona para a página de resultados com pontuação baixa
+                           window.location.replace('/questionarioResultadoBaixo'); // redireciona para a página de resultados com pontuação baixa
                         
-                        } else {
-
+                        } 
+                        if (pontuacao >= 1){
                             window.location.replace('/questionarioResultadoAlto'); // redireciona para a página de resultados com pontuação alta
                         }
                     }
+
+                    document.querySelector('form').addEventListener('submit', handleSubmit);
 
                     
 
                    
                 </script>
                 
-            </div>
+            </form>
             
         </section>
     </main>
