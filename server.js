@@ -32,7 +32,7 @@ app.get("/questionarioResultadoBaixo", (req, res)=>{
 
 })
 
-app.get("/questionarioResultadoAlto", (req, res)=>{
+app.get("/questionarioResultadoAlto", async (req, res)=>{
 
     res.render("questionsHightResult");
 
@@ -46,7 +46,7 @@ app.get("/questionarioResultadoAlto", (req, res)=>{
     
     });
 
-    let message = transport.sendMail({
+    let message = await transport.sendMail({
         from: '"pessoa teste" <pessoa@teste.com>',
         to: "pucci.rique1234@gmail.com",
         subject: "email com nodemailer",
