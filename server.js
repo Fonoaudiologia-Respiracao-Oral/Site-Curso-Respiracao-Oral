@@ -27,8 +27,138 @@ app.get("/questionario", (req, res)=>{
     res.render("questions");
 })
 
-app.get("/questionarioResultadoBaixo", (req, res)=>{
+app.get("/questionarioResultadoBaixo", async (req, res)=>{
     res.render("questionsLowResult");
+
+    var transport = nodemailer.createTransport({
+        host: "sandbox.smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: "4d87d9cbbad24f",
+          pass: "3943ed40180fe5"
+        }
+    
+    });
+
+    let message = transport.sendMail({
+        from: '"pessoa teste" <pessoa@teste.com>',
+        to: "pucci.rique1234@gmail.com",
+        subject: "email com nodemailer",
+        text: "email de teste ${nome}",
+        html: '<head>\
+        <title>Document</title>\
+        <style>\
+        *{\
+            margin: 0;\
+            padding: 0;\
+        }\
+        main_content_border{\
+            border: 10px;\
+            border-style: solid;\
+            border-color: white;\
+            border-style: solid;\
+        }\
+        #main_content{\
+            border: 10px;\
+            border-style: solid;\
+            border-color:#CAE8FF;\
+            border-style: solid;\
+            background-color: #5CB6F9;\
+            display: flex;\
+            flex-direction: column;\
+            min-height: 100vh;\
+        }\
+        #central_header{\
+            height: 200px;\
+            display: flex;\
+            justify-content: center;\
+            position: relative;\
+        }\
+        #central_header img{\
+            height: 200px;\
+        }\
+        .center {\
+            margin: 50px auto;\
+            max-width: 900px;\
+            font-family: Arial, sans-serif;\
+        }\
+        .center_box {\
+            margin-bottom: 20px;\
+            border-radius: 20px;\
+            padding: 5%;\
+            background-color: #CAE8FF;\
+            box-shadow: 2px 2px 2px #002439;\
+        }\
+        h1{\
+            margin-top: 0;\
+            font-size: 33px;\
+            margin-bottom: 30px;\
+            color: #002439;\
+            text-shadow: 2px 2px 2px #6dc0ff;\
+        }\
+        li{\
+            font-size: 25px;\
+            color: black;\
+            margin-top: 15px;\
+            text-align:left;\
+            margin-left: 5%;\
+            width: 80%;\
+            text-shadow: 1px 1px 1px #5CB6F9;\
+        }\
+        .start_module_container{\
+            display: flex;\
+            justify-content: center;\
+            align-items: center;\
+            width: 100%;\
+            height: 100px;\
+            margin-bottom: 50px;\
+            margin-top: 50px;\
+        }\
+        .start_module_container button{\
+            width: 300px;\
+            height: 80px;\
+            background-color: #002439;\
+            color: white;\
+            font-size: 20px;\
+            border: solid;\
+            border-color: #002439;\
+            border-radius: 5px;\
+            transition: 0.2s;\
+        }\
+        .start_module_container button:hover{\
+            background-color: #002439;\
+            box-shadow: 2px 2px 2px #002439;\
+            cursor: pointer;\
+        }\
+        .start_module_container button span{\
+            font-size: 90%;\
+        }\
+        </style>\
+        </head>\
+        <body>\
+            <section id="main_content">\
+                <section class="center">\
+                    <div class="center_box">\
+                        <h1>Solicitação de Certiicado:</h1>\
+                        <li>Alguém respondeu ao questionario 😁</li>\
+                        <li>Verifique a pontuação alcançada pelo participante</li>\
+                        <li>O certificado será liberado para quem atingiu uma pontuaçaõ de 8 ou mais</li>\
+                        <li>Os participantes que tiverem seu certificado enviado, deverão estar com "Sim" na coluna de "Certificado Enviado"</li>\
+                        <li>Para acessar a planilha de controle, clique no botão abaixo</li>\
+                        <div class="start_module_container">\
+                            <a href="https://docs.google.com/spreadsheets/d/1a_mVHqDmgfHLYNHuUk_sHj6_u7pmXYytut24QrXaazA/edit#gid=0">\
+                                <button>\
+                                    <span>Acessar Planilha</span>\
+                                </button>\
+                            </a>\
+                        </div>\
+                    </div>\
+                </section>\
+            </section>\
+        </body>\
+        </html>\
+    '
+    });
 })
 
 app.get("/questionarioResultadoAlto", async (req, res)=>{
@@ -145,13 +275,15 @@ app.get("/questionarioResultadoAlto", async (req, res)=>{
                 <section class="center">\
                     <div class="center_box">\
                         <h1>Solicitação de Certiicado:</h1>\
-                        <li>Alguém respondeu ao questionario, e atingiu pontuação acima da média 😢</li>\
-                        <li>Para a liberação do certificado, deverá se obter uma pontuação média, ou acima da média no questiónario (acertar 8 ou mais questões).</li>\
-                        <li>O certificado será disponibilizado em até 48h em seu email de cadastro no questionário.</li>\
+                        <li>Alguém respondeu ao questionario 😁</li>\
+                        <li>Verifique a pontuação alcançada pelo participante</li>\
+                        <li>O certificado será liberado para quem atingiu uma pontuaçaõ de 8 ou mais</li>\
+                        <li>Os participantes que tiverem seu certificado enviado, deverão estar com "Sim" na coluna de "Certificado Enviado"</li>\
+                        <li>Para acessar a planilha de controle, clique no botão abaixo</li>\
                         <div class="start_module_container">\
-                            <a href="/questionario">\
+                            <a href="https://docs.google.com/spreadsheets/d/1a_mVHqDmgfHLYNHuUk_sHj6_u7pmXYytut24QrXaazA/edit#gid=0">\
                                 <button>\
-                                    <span>Iniciar Questionário</span>\
+                                    <span>Acessar Planilha</span>\
                                 </button>\
                             </a>\
                         </div>\
