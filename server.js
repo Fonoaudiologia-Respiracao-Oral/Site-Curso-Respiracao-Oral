@@ -32,7 +32,7 @@ app.get("/questionarioResultadoBaixo", (req, res)=>{
 
 })
 
-app.get("/questionarioResultadoAlto", async (req, res)=>{
+app.get("/questionarioResultadoAlto", (req, res)=>{
 
     res.render("questionsHightResult");
 
@@ -145,8 +145,8 @@ app.get("/questionarioResultadoAlto", async (req, res)=>{
             <section id="main_content">\
                 <section class="center">\
                     <div class="center_box">\
-                        <h1>Solicitação de Certiicado:</h1>\
-                        <li>Alguém respondeu ao questionario 😁</li>\
+                        <h1>Solicitação de Certificado:</h1>\
+                        <li>Alguém respondeu ao questionario e liberou o certificado 😁</li>\
                         <li>Verifique a pontuação alcançada pelo participante</li>\
                         <li>O certificado será liberado para quem atingiu uma pontuaçaõ de 8 ou mais</li>\
                         <li>Os participantes que tiverem seu certificado enviado, deverão estar com "Sim" na coluna de "Certificado Enviado"</li>\
