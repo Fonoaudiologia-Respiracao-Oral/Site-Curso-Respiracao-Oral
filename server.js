@@ -3,8 +3,8 @@ const path= require('path');
 const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 8080
-const sgMail = require('@sendgrid/mail');
-const API_KEY = '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';
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 
 app.set("view engine", "ejs");
@@ -35,20 +35,25 @@ app.get("/questionarioResultadoBaixo", (req, res)=>{
 })
 
 app.get("/questionarioResultadoAlto", async (req, res)=>{
+    
+    const sgMail = require('@sendgrid/mail')
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+    const msg = {
+        to: 'pucci.rique1234@gmail.com', // Change to your recipient
+        from: 'respiracaooral@gmail.com', // Change to your verified sender
+        subject: 'Sending with SendGrid is Fun',
+        text: 'and easy to do anywhere, even with Node.js',
+        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+    }
+    sgMail
+    .send(msg)
+    .then(() => {
+        console.log('Email sent')
+    })
+    .catch((error) => {
+        console.error(error)
+    })
     res.render("questionsHightResult");
-
-    sgMail.serApiKey(API_KEY);
-
-    const mesage = {
-        to: 'pucci.rique1234@gmail.com',
-        from: 'respiracaooral@gmail.com',
-        subject: 'Resultado do questionário',
-        text: 'O resultado do questionário foi alto'
-    };
-
-    sgMail.send(mesage)
-    .then(response => console.log('email sent'))
-    .catch(error => console.log(error.message));
 })
 
 app.get("/modulo1", (req, res)=>{
